@@ -146,4 +146,3 @@ To check the saved data in the database, follow these steps:
 |----|--------------|---------------------|---------------------|
 |  1 | {"ip": "192.168.32.1", "agent": "PostmanRuntime/7.36.3", "log_uuid": "26a1c245-e369-4c85-93bb-3bfa8bea19a2"} | 2024-02-26 10:35:13 | 2024-02-26 10:35:13 |
 
-```
