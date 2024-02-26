@@ -1,4 +1,3 @@
-```markdown
 ## Task Description
 
 This project started from the following exercise:
