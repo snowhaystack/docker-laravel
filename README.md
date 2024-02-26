@@ -2,6 +2,9 @@
 
 This project started from the following exercise:
 
+Service A => project-forward
+Service B => project-receiver
+
 1. Create 2 minimal microservices in Laravel, PHP.
    - Service A calls Service B in REST with 2 different payloads.
    - Service B validates the input.
