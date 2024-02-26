@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  project-forward:
+    container_name: project-forward
+    build:
+      context: ./project-forward
+      dockerfile: Dockerfile
+    ports:
+      - "8001:80"
+    networks:
+      - laravel_network
+    hostname: project-forward
+
+  project-receiver:
+    container_name: project-receiver
+    build:
+      context: ./project-receiver
+      dockerfile: Dockerfile
+    ports:
+      - "8002:80"
+    networks:
+      - laravel_network
+    hostname: project-receiver
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:5.7
+    container_name: mysql
+    restart: unless-stopped
+    tty: true
+    environment:
+      MYSQL_DATABASE: project-receiver-db
+      MYSQL_USER: project-receiver-u
+      MYSQL_PASSWORD: project-receiver-p
+      MYSQL_ROOT_PASSWORD: project-receiver-p
+      SERVICE_NAME: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - laravel_network
+
+networks:
+  laravel_network:
+    driver: bridge
